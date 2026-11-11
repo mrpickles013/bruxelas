@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Veículos</title>
+    <link rel="stylesheet" href="ESTILOS.css">
+    <script src="SCRIPTS.js" defer></script>
+
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="form-title">Cadastrar Veículo</h1>
+        
+        <form id="CadVeiculos" onsubmit="salvarVeiculo(event)">
+            <input type="hidden" id="vehId" value=""><!-- ID escondido-->
+
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" required placeholder="Ex: Fiat">
+            </div>
+
+            <div class="form-group">
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" required placeholder="Ex: Uno">
+            </div>
+
+            <div class="form-group">
+                <label for="ano">Ano:</label>
+                <input type="number" id="ano" required min="1900" max="2099" placeholder="Ex: 2012">
+            </div>
+
+            <div class="form-group">
+                <div class="chassi-label-container">
+                    <label for="chassi">Número do Chassi:</label>
+                    <div class="IconeAjuda">
+                        ?
+                        <div class="tooltip-text">
+                            O Chassi é o número de identificação único de 17 caracteres do veículo. Pode ser encontrado no documento (CRLV), gravado nos vidros ou na coluna da porta.
+                        </div>
+                    </div>
+                </div>
+                <input type="text" id="chassi" required maxlength="17" placeholder="Ex: 9BWCA11X012345678">
+            </div>
+
+            <div class="form-group">
+                <label for="peso">Peso do Carro (kg):</label>
+                <input type="number" id="peso" required step="0.1" min="1" placeholder="Ex: 910">
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" class="btn-save" id="btnSubmit">Salvar</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <h2>Lista de Veículos Registrados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Chassi</th>
+                    <th>Peso (kg)</th>
+                    <th style="width: 150px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
